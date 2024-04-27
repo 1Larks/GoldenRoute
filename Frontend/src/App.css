@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
+
+body {
+  background-color: rgb(51, 51, 51);
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textContainer {
+  text-align: right;
+  margin-right: 80px;
+}
+
+.logoContainer img {
+  width: 170px;
+  height: 179px;
+  margin-top: 45px;
+}
+
+.logoContainer h1 {
+  text-align: center;
+  font-family: "Concert One", sans-serif;
+  font-size: 60px;
+  letter-spacing: 20px;
+  color: rgb(255, 215, 0);
+}
+
+.logoContainer h2 {
+  font-size: 25px;
+  text-align: center;
+  font-family: "Concert One", sans-serif;
+  color: rgb(255, 215, 0);
+}
+
+.TextInputContainer{
+  display: flex;
+  justify-content: flex-end; /* Align the .TextInput container to the right */
+  width: 100%; /* Ensure the container takes up the full width */
+  /* Add any additional styling as needed */
+}
+
+.TextInput {
+  font-family: "Karantina", system-ui;
+  font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 25px;
+  margin-right:225px;
+}
+
+.Section {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.Section h2 {
+  width: 360px;
+  margin: 0;
+  color: rgb(208, 194, 175);
+  text-shadow: black;
+  text-align:center;
+}
+
+.Section input {
+  max-width: 300px; /* Set a maximum width for the input */
+  width: 40%;
+
+  font-family: "Karantina", system-ui;
+  font-size: 30px;
+  
+  padding: 1.5rem 1.75rem;
+  border-radius: 3rem;
+  
+}
+
+.App-link {
+  color: #61dafb;
+}
