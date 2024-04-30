@@ -1,35 +1,22 @@
 import './App.css';
 
-const TextInput = () => {
-
-    return (
-        <div className='TextInputContainer'>
-            <div className='TextInput'>
-
-                <div className='Section'>
-                    <h2>:קו אורך</h2>
-                    <input name='Latitude' className='InputBox' /> 
-                </div>
-
-                <div className='Section'>
-                    <h2>:קו אורך</h2>
-                    <input name='Longitude' className='InputBox' /> 
-                </div>
-
-                <div className='Section'>
-                    <h2>:רדיוס טיסה</h2>
-                    <input name='Longitude' className='InputBox' /> 
-                </div>
-
-                <div className='Section'>
-                    <h2>:מהירות</h2>
-                    <input name='Speed' className='InputBox' /> 
-                </div>
-
-            </div>
+const InputBox = ({InputName, DisplayName, Data}) => {
+    return(
+        <div className = 'InputSection'>
+            <h1>{DisplayName}</h1>
+            <input name = {InputName} className = 'InputBox' onChange={Data} />
         </div>
     );
-
 }
 
-export default TextInput;
+// const TextInput = () => {
+
+//     return (
+//         <div className='TextInput'>
+//             
+//         </div>
+//     );
+
+// }
+
+export default InputBox;

@@ -5,8 +5,8 @@ const Logo = () => {
 
     return (<div className='logoContainer'>
           <div className='textContainer'>
-              <h1>Angels of Heaven</h1>
-              <h2>Unmanned Aerial Vehicle Information Interface</h2>
+              <h1>מלאכי שמיים</h1>
+              <h2>ממשק אינפורמציה לכתמ"מים עוינים</h2>
           </div>
         
           <img src={airforce} />
