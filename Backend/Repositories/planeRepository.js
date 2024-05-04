@@ -1,16 +1,21 @@
-const url = 'https://adsbx-flight-sim-traffic.p.rapidapi.com/api/aircraft/json/lat/42.1781/lon/17.5/dist/25/';
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '74f3ffcee6msh1a010493179ee28p1cfb04jsna1e30ca6bdd2',
-		'X-RapidAPI-Host': 'adsbx-flight-sim-traffic.p.rapidapi.com'
-	}
-};
+const URL = `https://opensky-network.org/api/states/all`;
+import { getBoundingBox } from "../coords_calculations.js";
 
-try {
-	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-} catch (error) {
-	console.error(error);
+// ?lamin=45.8389&lomin=5.9962&lamax=47.8229&lomax=10.5226
+
+
+const getAircraftsFromAPI = async (latitude, longitude, radius) => {
+
+    // const WGS84_params = getBoundingBox(latitude, longitude, radius);
+    // const requestURL = `${URL}?lamin=${WGS84_params[0]}&lomin=${WGS84_params[1]}&lamax=${WGS84_params[2]}&lomax=${WGS84_params[3]}`;
+    
+    const requestURL = `http://api.airplanes.live/v2/point/${latitude}/${longitude}/${radius}`;
+    
+    const request = await fetch(requestURL);
+    const response = await request.json();
+    
+    return response;
+    
 }
+
+export {getAircraftsFromAPI}

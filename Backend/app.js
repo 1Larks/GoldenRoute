@@ -13,6 +13,6 @@ App.listen(PORT, () => {
     console.log("Listening on port " + PORT);
 
     App.use("/drone", droneRouter);
-    App.use("/plane", planeRouter)
+    App.use("/plane", planeRouter);
 
 });

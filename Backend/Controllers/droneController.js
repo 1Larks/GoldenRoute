@@ -6,11 +6,11 @@ const testHandler = (req, res) => {
 };
 
 const testNumHandler = (req, res) => {
-    return res.json(`the number i got is ${req.params.number}`)
+    return res.json(`the number i got is ${req.params.number}`);
 };
 
 const fetchCoords = (req, res) => {
-    return res.json(`The coords are: ${req.params.coords1} ${req.params.coords2}`)
+    return res.json(`The coords are: ${req.params.coords1} ${req.params.coords2}`);
 };
 
 export {testHandler, testNumHandler, fetchCoords};
