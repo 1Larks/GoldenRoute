@@ -67,8 +67,8 @@ const App = () => {
       </div>
 
       <div className='DB_Section'>
-        <DB_Import />
-        <DB_Export />
+        {isPlane && (<DB_Import />)}
+        {isPlane && (<DB_Export />)}
       </div>
 
     </div>
