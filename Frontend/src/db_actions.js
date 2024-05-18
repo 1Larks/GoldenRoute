@@ -1,14 +1,14 @@
 
-const DB_Import = () => {
-    return (
-        <button> ייבא מבצע </button>
-    )
-}
+const DB_Actions = ( {URL} ) => {
+    
+    
 
-const DB_Export = () => {
-    return(
-        <button> שמור מבצע </button>
+    return (
+        <div>
+            <button> ייבא מבצע </button>
+            <button> שמור מבצע </button>
+        </div>
     );
 }
 
-export {DB_Import, DB_Export}
+export {DB_Actions}

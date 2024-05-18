@@ -15,7 +15,7 @@ const PlaneCard = forwardRef(({index, plane, expandedIndex, setExpandedIndex}, r
   };
 
   useEffect( ()=>{
-    if (expandedIndex != index){
+    if (expandedIndex !== index){
         setExpanded(false);
     }
     else {

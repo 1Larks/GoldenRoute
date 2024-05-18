@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import './App.css';
 
@@ -7,7 +7,7 @@ import Logo from "./Logo.js"
 import InputBox from './TextInput';
 import Map from './MapComponent.js';
 import RadiusBox from './radiusBox.js';
-import { DB_Import, DB_Export } from './db_actions.js';
+import {DB_Actions } from './db_actions.js';
 
 URL = "http://localhost:7878/"
 
@@ -67,8 +67,7 @@ const App = () => {
       </div>
 
       <div className='DB_Section'>
-        {isPlane && (<DB_Import />)}
-        {isPlane && (<DB_Export />)}
+        {isPlane && (<DB_Actions URL={URL} />)}
       </div>
 
     </div>
