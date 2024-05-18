@@ -1,35 +1,46 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+
 import './App.css';
+
 import Logo from "./Logo.js"
 import InputBox from './TextInput';
+import Map from './MapComponent.js';
+import RadiusBox from './radiusBox.js';
+import { DB_Import, DB_Export } from './db_actions.js';
 
 URL = "http://localhost:7878/"
 
 const App = () => {
 
-  const [[data], setData] = useState([])
-
-  const [info, setInfo] = useState({
+  const [planeData, setPlaneData] = useState([]);
+  const [isPlane, setIsPlane] = useState(false);
+  const [expandedIndex, setExpandedIndex] = useState(-1);
+  const [scroll, setScroll] = useState(false);
+  const [hostlieInfo, setHostileInfo] = useState({
     Latitude: '',
     Longitude: '',
     Radius: '',
     Speed: ''
-  })
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setInfo(prevState => ({
+    setHostileInfo(prevState => ({
         ...prevState,
         [name]: value
     }));
   };
 
   const handleClick = async () => {
-    const requestURL = `${URL}plane/getPlanes/${info['Latitude']}&${info['Longitude']}&${info['Radius']}`;
+    setIsPlane(false);
+    setExpandedIndex(-1);
+    const requestURL = `${URL}plane/getPlanes/${hostlieInfo['Latitude']}&${hostlieInfo['Longitude']}&${hostlieInfo['Radius']}&${hostlieInfo['Speed']}`;
     const request = await fetch(requestURL);
     const response = await request.json();
-    console.log(response)
+    setPlaneData(response);
+    setIsPlane(true);
+    console.log(response);
   };
 
   return (
@@ -45,8 +56,19 @@ const App = () => {
         <button onClick={handleClick}>שלח מידע</button>
       </div>
 
-      <div>
-        <h1> {data} </h1>
+      <div className='mapContainer'>
+        {isPlane && (
+          <RadiusBox planes={planeData} expandedIndex = {expandedIndex} setExpandedIndex={setExpandedIndex}
+          scroll={scroll} setScroll={setScroll}/>
+        )}
+        {isPlane && (
+        <Map hostileInfo={hostlieInfo} friendlyInfo={planeData} expanded_index={expandedIndex}
+         setExpandedIndex={setExpandedIndex} setScroll={setScroll}/>)}
+      </div>
+
+      <div className='DB_Section'>
+        {isPlane && (<DB_Import />)}
+        {isPlane && (<DB_Export />)}
       </div>
 
     </div>
