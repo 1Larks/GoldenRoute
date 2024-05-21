@@ -7,7 +7,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Operation {
+model operation {
   id            Int       @id @default(autoincrement())
   hostile_plane Json
   planes        Json

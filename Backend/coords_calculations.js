@@ -19,4 +19,4 @@ function calculateDistance(lat1, lon1, lat2, lon2){
     return R * c; // in metres
 }
 
-export { calculateDistance }
+module.exports = { calculateDistance }

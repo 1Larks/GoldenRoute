@@ -17,7 +17,7 @@ const App = () => {
   const [isPlane, setIsPlane] = useState(false);
   const [expandedIndex, setExpandedIndex] = useState(-1);
   const [scroll, setScroll] = useState(false);
-  const [hostlieInfo, setHostileInfo] = useState({
+  const [hostileInfo, setHostileInfo] = useState({
     Latitude: '',
     Longitude: '',
     Radius: '',
@@ -35,7 +35,7 @@ const App = () => {
   const handleClick = async () => {
     setIsPlane(false);
     setExpandedIndex(-1);
-    const requestURL = `${URL}plane/getPlanes/${hostlieInfo['Latitude']}&${hostlieInfo['Longitude']}&${hostlieInfo['Radius']}&${hostlieInfo['Speed']}`;
+    const requestURL = `${URL}plane/getPlanes/${hostileInfo['Latitude']}&${hostileInfo['Longitude']}&${hostileInfo['Radius']}&${hostileInfo['Speed']}`;
     const request = await fetch(requestURL);
     const response = await request.json();
     setPlaneData(response);
@@ -62,12 +62,12 @@ const App = () => {
           scroll={scroll} setScroll={setScroll}/>
         )}
         {isPlane && (
-        <Map hostileInfo={hostlieInfo} friendlyInfo={planeData} expanded_index={expandedIndex}
+        <Map hostileInfo={hostileInfo} friendlyInfo={planeData} expanded_index={expandedIndex}
          setExpandedIndex={setExpandedIndex} setScroll={setScroll}/>)}
       </div>
 
       <div className='DB_Section'>
-        {isPlane && (<DB_Actions URL={URL} />)}
+        {isPlane && (<DB_Actions URL={URL} hostileInfo={hostileInfo} friendlyInfo={planeData}/>)}
       </div>
 
     </div>

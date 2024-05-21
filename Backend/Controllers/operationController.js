@@ -1,5 +1,5 @@
-const prisma = require('./db');
-const operationService = require("../Services/operationService.js");
+const {prisma} = require('../db');
+const getLast10OperationsService = require("../Services/operationService.js");
 
 // Function to save a new operation
 const saveOperation = async (req, res) => {
@@ -22,7 +22,7 @@ const saveOperation = async (req, res) => {
 const getOperation = async (req, res) => {
   const { id } = req.params;
   try {
-    const operation = await prisma.operation.findUnique({
+    const operation = await operationDB.findUnique({
       where: { id: parseInt(id) },
     });
     if (!operation) {
@@ -36,9 +36,9 @@ const getOperation = async (req, res) => {
 };
 
 // Get the last 10 operations with superficial information
-const getLast10Operations = async (req, res) => {
+const getLast10OperationsController = async (req, res) => {
   try {
-    const operations = await operationService.getLast10Operations();
+    const operations = await getLast10OperationsService();
     res.json(operations);
   } catch (error) {
     console.error(error);
@@ -49,5 +49,5 @@ const getLast10Operations = async (req, res) => {
 module.exports = {
   saveOperation,
   getOperation,
-  getLast10Operations
+  getLast10OperationsController
 };

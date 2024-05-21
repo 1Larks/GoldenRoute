@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Operation" (
+CREATE TABLE "operation" (
     "id" SERIAL NOT NULL,
     "hostile_plane" JSONB NOT NULL,
     "planes" JSONB NOT NULL,

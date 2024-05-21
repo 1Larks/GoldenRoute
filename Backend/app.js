@@ -1,8 +1,8 @@
-import Express from "express";
-import cors from "cors";
-import bodyParser from "body-parser";
-import operationRouter from "./Routers/operationRouter.js";
-import planeRouter from "./Routers/planeRouter.js";
+const Express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const operationRouter = require("./Routers/operationRouter.js");
+const planeRouter =  require("./Routers/planeRouter.js");
 
 const App = Express();
 const PORT = 7878;
@@ -14,7 +14,7 @@ App.use(cors());
 App.listen(PORT, () => {
     console.log("Listening on port " + PORT);
 
-    App.use("/operation", operationRouter);
-    App.use("/plane", planeRouter);
+    App.use("/operation", operationRouter.router);
+    App.use("/plane", planeRouter.router);
 
 });

@@ -1,8 +1,8 @@
-const operationRepository = require("../Repositories/operationRepository.js")
+const getLast10Operations = require("../Repositories/operationRepository.js")
 
 // Get the last 10 operations with superficial information
-const getLast10Operations = async () => {
-  return await operationRepository.getLast10Operations();
+const getLast10OperationsService = async () => {
+  return await getLast10Operations();
 };
 
-export { getLast10Operations };
+module.exports = { getLast10OperationsService };

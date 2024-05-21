@@ -1,9 +1,15 @@
-import express from "express";
-const operationsController = require("../controllers/operationsController.js");
+const express = require("express");
+const {saveOperation, getOperation, getLast10OperationsController} = require("../Controllers/operationController.js");
 
 const router = express.Router();
 
 // Route to get the last 10 operations
-router.route('/operations/:amount').get(operationsController.getLast10Operations);
+router.post('/save', function(req, res){
+    saveOperation(req, res);
+});
+router.get('/getDisplayInfo/:amount', function(req, res){
+    getLast10OperationsController(req, res);
+});
 
-export default router;
+
+module.exports = {router};

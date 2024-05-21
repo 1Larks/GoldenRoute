@@ -1,4 +1,4 @@
-import prisma from "../db.js";
+const prisma = require("../db.js");
 
 // Get the last 10 operations with superficial information
 const getLast10Operations = async () => {

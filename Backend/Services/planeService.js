@@ -1,5 +1,5 @@
-import { getAircraftsFromAPI } from "../Repositories/planeRepository.js"
-import { calculateDistance } from "../coords_calculations.js";
+const { getAircraftsRepo } = require("../Repositories/planeRepository.js")
+const { calculateDistance }  = require("../coords_calculations.js");
 
 function create_plane (plane, d, t){
     const aircraft = {
@@ -17,9 +17,9 @@ function create_plane (plane, d, t){
     return aircraft;
 }
 
-const getAircrafts = async (latitude, longitude, radius, velocity) => {
+const getAircraftsService = async (latitude, longitude, radius, velocity) => {
     const radius_in_NM = parseFloat(radius) *  0.539956803
-    const aircrafts_unformatted = await getAircraftsFromAPI(latitude, longitude, radius_in_NM);
+    const aircrafts_unformatted = await getAircraftsRepo(latitude, longitude, radius_in_NM);
     const aircrafts = []
     aircrafts_unformatted.ac.forEach(function(plane) {
         const lat = plane.lat
@@ -35,4 +35,4 @@ const getAircrafts = async (latitude, longitude, radius, velocity) => {
     return aircrafts;
 }
 
-export {getAircrafts as get_formatted_aircrafts};
+module.exports = { getAircraftsService };

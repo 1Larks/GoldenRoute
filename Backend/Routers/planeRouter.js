@@ -1,8 +1,10 @@
-import Express from "express";
-import { getAircrafts } from "../Controllers/planeController.js";
+const Express = require("express");
+const { getAircraftsController } = require("../Controllers/planeController.js");
 
 const router = Express.Router();
 
-router.route('/getPlanes/:latitude&:longitude&:radius&:velocity').get(getAircrafts);
+router.get('/getPlanes/:latitude&:longitude&:radius&:velocity', function(req, res){
+    getAircraftsController(req, res);
+});
 
-export default router;
+module.exports = {router};
