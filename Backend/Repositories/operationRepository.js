@@ -1,10 +1,37 @@
-const prisma = require("../db.js");
+const {prisma} = require("../db.js");
 
-// Get the last 10 operations with superficial information
-const getLast10Operations = async () => {
-  return await prisma.operation.findMany({
-    take: 10,
-    orderBy: { created_at: 'desc' }, // Assuming 'created_at' is the timestamp of the operation
-  });
+const saveOperation = async(hostile_plane, planes) => {
+  try {
+    const operation = await prisma.operation.create({
+      data: {
+        hostile_plane,
+        planes,
+      },
+    });
+    return operation
+  } catch (err) {
+    console.error(err.message);
+    return err;
+  }
+}
+
+const getOperations = async (amount) => {
+  
+  // Convert limit to a number
+  const numOperations = parseInt(amount, 10) || 10; // Default to 10 if limit is not provided
+
+  try {
+    const operations = await prisma.operation.findMany({
+      take: numOperations,
+      orderBy: {
+        created_at: 'desc', // Assuming you want the most recent operations
+      },
+    });
+    return operations
+  } catch (error) {
+    console.error(error.message);
+    
+  }
 };
-module.exports = {getLast10Operations};
+
+module.exports = {saveOperation, getOperations};

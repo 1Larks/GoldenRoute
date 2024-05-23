@@ -1,8 +1,11 @@
-const getLast10Operations = require("../Repositories/operationRepository.js")
+const {getOperations, saveOperation} = require("../Repositories/operationRepository.js")
 
-// Get the last 10 operations with superficial information
-const getLast10OperationsService = async () => {
-  return await getLast10Operations();
-};
+const saveOperationService = async (hostile_plane, planes) => {
+  return await saveOperation(hostile_plane, planes);
+}
 
-module.exports = { getLast10OperationsService };
+const getOperationsService = async(amount) => {
+  return await getOperations(amount);
+} 
+
+module.exports = { getOperationsService, saveOperationService };
