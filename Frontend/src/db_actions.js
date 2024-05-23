@@ -1,5 +1,5 @@
 
-const DB_Actions = ( {URL, hostileInfo, friendlyInfo} ) => {
+const DB_Actions = ( {URL, hostileInfo, friendlyInfo, openModal} ) => {
     
     const handleClickSave = async () => {
       try {
@@ -29,7 +29,7 @@ const DB_Actions = ( {URL, hostileInfo, friendlyInfo} ) => {
 
     return (
         <div>
-            <button > ייבא מבצע</button>
+            <button onClick={openModal} > ייבא מבצע</button>
             <button onClick={handleClickSave} > שמור מבצע </button>
         </div>
     );

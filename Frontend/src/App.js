@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 
@@ -8,6 +7,7 @@ import InputBox from './TextInput';
 import Map from './MapComponent.js';
 import RadiusBox from './radiusBox.js';
 import {DB_Actions } from './db_actions.js';
+import DB_Modal from './db_modal.js';
 
 URL = "http://localhost:7878/"
 
@@ -23,6 +23,14 @@ const App = () => {
     Radius: '',
     Speed: ''
   });
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  }
+  const closeModal = () => {
+    setShowModal(false);
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -67,7 +75,8 @@ const App = () => {
       </div>
 
       <div className='DB_Section'>
-        {isPlane && (<DB_Actions URL={URL} hostileInfo={hostileInfo} friendlyInfo={planeData}/>)}
+        {isPlane && (<DB_Actions URL={URL} hostileInfo={hostileInfo} friendlyInfo={planeData} openModal={openModal} />)}
+        <DB_Modal showModal={showModal} onCloseModal={closeModal} />
       </div>
 
     </div>
