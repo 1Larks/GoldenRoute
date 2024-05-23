@@ -5,10 +5,30 @@ body {
   background-color: rgb(51, 51, 51);
 }
 
+button {
+  font-family: "Karantina", system-ui;
+  font-size: 30px;
+  
+  padding: 1.5rem 1.75rem;
+  border-radius: 3rem;
+  background-color:rgb(255, 255, 255);
+
+  margin-right: 125px;
+  margin-top: 25px;
+}
+button:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+   outline: none;
+}
+
 .logoContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -25px;
 }
 
 .logoContainer .textContainer {
@@ -26,11 +46,19 @@ body {
   text-align: center;
   font-family: "Concert One", sans-serif;
   font-size: 50px;
-  letter-spacing: 20px;
+  letter-spacing: 5px;
   color: rgb(255, 215, 0);
 }
 
 .logoContainer h2 {
+  text-align: center;
+  font-family: "Concert One", sans-serif;
+  font-size: 50px;
+  letter-spacing: 20px;
+  color: rgb(255, 215, 0);
+}
+
+.logoContainer h3 {
   font-size: 22.5px;
   text-align: center;
   font-family: "Concert One", sans-serif;
@@ -42,7 +70,6 @@ body {
   font-size: 22.5px;
   display: flex;
   flex-direction: column;
-  margin-top: 25px;
   margin-right:50px;
 }
 
@@ -67,45 +94,24 @@ body {
   
 }
 
-button {
-  font-family: "Karantina", system-ui;
-  font-size: 30px;
-  
-  padding: 1.5rem 1.75rem;
-  border-radius: 3rem;
-  background-color:rgb(255, 255, 255);
-
-  margin-right: 125px;
-  margin-top: 25px;
-}
-button:active {
-  background: #e5e5e5;
-  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-          box-shadow: inset 0px 0px 5px #c1c1c1;
-   outline: none;
-}
-
 .InputSection {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  margin-top: 25px;
   margin-left: 200px;
-  ;
 }
 
 .mapContainer {
   position: fixed;
   display: flex;
   flex-direction: row;
-  bottom: 0; /* Align to the bottom of the screen */
-  right: 0; /* Align to the right side of the screen */
-  margin: 50px; /* Adjust margin as needed */
+  bottom: 0;
+  right: 0;
+  margin: 50px;
   margin-right: 175px;
-  z-index: 999; /* Ensure it's above other content */
-  border-radius: 30px; /* Round the corners */
-  overflow: hidden; /* Ensure content inside the container doesn't overflow */
+  z-index: 1;
+  border-radius: 30px;
+  overflow: hidden;
 }
 
 /* Plane.css */
@@ -115,7 +121,7 @@ button:active {
   margin-bottom: 10px;
   border-radius: 20px;
   cursor: pointer;
-  color: white; /* Set text color to white */
+  color: white;
 }
 
 .planeCard h1 {
@@ -125,14 +131,14 @@ button:active {
 
 /* RadarBox.css */
 .radar-box {
-  background-color: #292929; /* Slightly darker gray */
+  background-color: #292929;
   font-family: "Concert One", sans-serif;
   padding: 20px;
   border-top-left-radius: 20px;
   box-shadow: 0 0 20px rgb(255, 255, 255);
-  color: white; /* Set text color to white */
-  height: 410px; /* Set a specific height */
-  overflow-y: auto; /* Add vertical scrollbar if content exceeds the height */
+  color: white;
+  height: 410px;
+  overflow-y: auto;
   max-width: 300px;
 }
 .radar-box h2 {
@@ -151,6 +157,44 @@ button:active {
   left: 0;
   margin: 175px;
   margin-left: 500px;
+  z-index: 1000;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  color: rgb(255, 215, 0);
+  font-family: "Concert One", sans-serif;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: rgb(70, 70, 70);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 650px;
+  height: 700px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
 }
 
 .App-link {
