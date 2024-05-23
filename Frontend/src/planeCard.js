@@ -36,6 +36,7 @@ const PlaneCard = forwardRef(({index, plane, expandedIndex, setExpandedIndex}, r
           <p>Track: {format_field(plane.true_track)} Degrees</p>
           <p>Squawk: {format_field(plane.squawk)}</p>
           <p>Category: {format_field(plane.category)}</p>
+          <p>Closest: {plane.closest}</p>
         </div>
       )}
     </div>
