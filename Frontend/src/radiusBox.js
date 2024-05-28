@@ -3,6 +3,8 @@ import './App.css';
 import PlaneCard from './planeCard';
 
 const RadiusBox = ({ planes, expandedIndex, setExpandedIndex, scroll, setScroll}) => {
+    
+
     const planeRefs = useRef([]);
 
     useEffect( () => {
@@ -11,7 +13,6 @@ const RadiusBox = ({ planes, expandedIndex, setExpandedIndex, scroll, setScroll}
             setScroll(false);
           }
     }, [scroll])
-
     return (
     <div className="radar-box">
         <h3>{planes.length} Planes Detected</h3>

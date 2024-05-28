@@ -23,9 +23,7 @@ const getOperations = async (amount) => {
   try {
     const operations = await prisma.operation.findMany({
       take: numOperations,
-      orderBy: {
-        created_at: 'desc', // Assuming you want the most recent operations
-      },
+      
     });
     return operations
   } catch (error) {

@@ -1,38 +1,38 @@
-import React from "react";
- 
-const Modal = ({ isOpen, onClose, data }) => {
+import React, { useState, useEffect } from 'react';
+
+const Modal = ({ isOpen, onClose, data, URL }) => {
+    const [amount, setAmount] = useState(10);
+
     if (!isOpen) return null;
- 
+    
+    const getOperations = async (amount) => {
+        const operations = await fetch(`${URL}/operation?amount=${amount}`);
+          // Handle response
+          if (operations.ok) {
+            const response = await operations.json();
+            console.log(response.operations);
+          } else {
+            // Error saving operation
+            console.error('Failed to import operations');
+          }
+    }
+
+    const changeAmount = (e) => {
+        const amount = e.target.value;
+        setAmount(amount);
+    }
+    
     return (
-        // <div
-        //     onClick={onClose}
-        //     style={{
-        //         position: "fixed",
-        //         top: 0,
-        //         left: 0,
-        //         width: "100%",
-        //         height: "100%",
-        //         background: "rgba(0, 0, 0, 0.5)",
-        //         display: "flex",
-        //         alignItems: "center",
-        //         justifyContent: "center",
-        //     }}
-        // >
-        //     <div className="Modal">
-        //         {children}
-        //     </div>
-        // </div>
         <div className="modal">
             <div className="modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
-                {data ? (
-                    <div>
-                        {/* Render your data here */}
-                        <h1>{data}</h1>
-                    </div>
-                ) : (
-                    <p>Loading...</p>
-                )}
+                <div className='ModalInput'>
+                    <h1 className='InputTitle'>כמות מבצעים</h1>
+                    <input className='InputBox' onChange={changeAmount}/>
+                </div>
+                <button onClick={ async() => {
+                        await getOperations(amount);
+                    }}>Load</button>
             </div>
         </div>
     );

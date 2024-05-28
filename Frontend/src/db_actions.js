@@ -4,7 +4,7 @@ const DB_Actions = ( {URL, hostileInfo, friendlyInfo, openModal} ) => {
     const handleClickSave = async () => {
       try {
           // Send current operation data to the backend
-          const response = await fetch(`${URL}operation/save`, {
+          const response = await fetch(`${URL}/operation/save`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -17,10 +17,10 @@ const DB_Actions = ( {URL, hostileInfo, friendlyInfo, openModal} ) => {
           // Handle response
           if (response.ok) {
             // Operation successfully saved
-            console.log('Operation saved successfully');
+            alert('Operation saved successfully');
           } else {
             // Error saving operation
-            console.error('Failed to save operation');
+            alert('Failed to save operation');
           }
         } catch (error) {
           console.error('Error:', error);

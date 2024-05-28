@@ -9,7 +9,7 @@ import RadiusBox from './radiusBox.js';
 import {DB_Actions } from './db_actions.js';
 import DB_Modal from './db_modal.js';
 
-URL = "http://localhost:7878/"
+URL = "http://localhost:7878"
 
 const App = () => {
 
@@ -43,7 +43,7 @@ const App = () => {
   const handleClick = async () => {
     setIsPlane(false);
     setExpandedIndex(-1);
-    const requestURL = `${URL}plane/getPlanes/${hostileInfo['Latitude']}&${hostileInfo['Longitude']}&${hostileInfo['Radius']}&${hostileInfo['Speed']}`;
+    const requestURL = `${URL}/plane/getPlanes/${hostileInfo['Latitude']}&${hostileInfo['Longitude']}&${hostileInfo['Radius']}&${hostileInfo['Speed']}`;
     const request = await fetch(requestURL);
     const response = await request.json();
     setPlaneData(response);
@@ -70,13 +70,13 @@ const App = () => {
           scroll={scroll} setScroll={setScroll}/>
         )}
         {isPlane && (
-        <Map hostileInfo={hostileInfo} friendlyInfo={planeData} expanded_index={expandedIndex}
-         setExpandedIndex={setExpandedIndex} setScroll={setScroll}/>)}
+          <Map hostileInfo={hostileInfo} friendlyInfo={planeData} expanded_index={expandedIndex}
+          setExpandedIndex={setExpandedIndex} setScroll={setScroll}/>)}
       </div>
 
       <div className='DB_Section'>
         {isPlane && (<DB_Actions URL={URL} hostileInfo={hostileInfo} friendlyInfo={planeData} openModal={openModal} />)}
-        <DB_Modal showModal={showModal} onCloseModal={closeModal} />
+        <DB_Modal showModal={showModal} onCloseModal={closeModal} URL={URL} />
       </div>
 
     </div>

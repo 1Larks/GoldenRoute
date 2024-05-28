@@ -20,7 +20,7 @@ const getOperationsController = async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
   else{
-    res.status(200).json(result);
+    res.status(201).json({'operations': result});
   }
 };
 
