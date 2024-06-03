@@ -1,0 +1,22 @@
+
+.InputBox {
+    display: flex;
+    flex-direction: column;
+    margin-right:50px;
+  }
+  
+  .InputTitle {
+    font-family: "Karantina", system-ui;
+    font-size: 45px;
+    width: 225px;
+    margin: 0;
+    color: rgb(208, 194, 175);
+    text-align:center;
+  }
+  
+  .InputSection {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-left: 200px;
+  }

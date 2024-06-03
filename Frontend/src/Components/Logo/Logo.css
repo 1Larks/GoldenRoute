@@ -1,0 +1,42 @@
+
+.logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -25px;
+  }
+  
+  .logoContainer .textContainer {
+    text-align: right;
+    margin-right: 70px;
+  }
+  
+  .logoContainer img {
+    width: 150px;
+    height: 159px;
+    margin-top: 45px;
+  }
+  
+  .logoContainer h1 {
+    text-align: center;
+    font-family: "Concert One", sans-serif;
+    font-size: 50px;
+    letter-spacing: 5px;
+    color: rgb(255, 215, 0);
+  }
+  
+  .logoContainer h2 {
+    text-align: center;
+    font-family: "Concert One", sans-serif;
+    font-size: 50px;
+    letter-spacing: 20px;
+    color: rgb(255, 215, 0);
+  }
+  
+  .logoContainer h3 {
+    font-size: 22.5px;
+    text-align: center;
+    font-family: "Concert One", sans-serif;
+    color: rgb(255, 215, 0);
+  }
+  

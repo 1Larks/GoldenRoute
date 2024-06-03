@@ -1,0 +1,53 @@
+
+.mapSection {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
+    right: 0;
+    margin: 50px;
+    margin-right: 175px;
+    z-index: 1;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  
+  /* Plane.css */
+  .planeCard {
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .planeCard h1 {
+    color: rgb(255, 215, 0);
+    font-family: "Concert One", sans-serif
+  }
+  
+  .infoBox {
+    background-color: #292929;
+    font-family: "Concert One", sans-serif;
+    padding: 20px;
+    border-top-left-radius: 20px;
+    box-shadow: 0 0 20px rgb(255, 255, 255);
+    color: white;
+    height: 410px;
+    overflow-y: auto;
+    max-width: 300px;
+  }
+  .radar-box h2 {
+    font-size: 40px;
+  }
+  .danger {
+    color: #f50000;
+  }
+  
