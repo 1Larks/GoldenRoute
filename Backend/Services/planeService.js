@@ -62,7 +62,9 @@ const getAircraftsService = async (latitude, longitude, radius, velocity) => {
             aircrafts.push(format_aircraft(plane, distance.toFixed(3), time.toFixed(3)));
         }
     })
-    aircrafts[shortest_distance_index].closest = 'true';
+    if (aircrafts.length > 0) {
+        aircrafts[shortest_distance_index].closest = 'true';
+    }
     return aircrafts;
 }
 
