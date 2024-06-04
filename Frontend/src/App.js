@@ -14,8 +14,6 @@ URL = "http://localhost:7878"
 
 const App = () => {
   
-  // hostileInput will hold the information about the hostile plane before sending it to the server
-  const [hostileInput, setHostileInput] = useState([null, null, null, null]);
   // planeData is the information about the planes that the program has recieved from the API
   const [planeData, setPlaneData] = useState([]);
   // isPlane is a boolean that tells us if there is any available plane information, this is used to prevent loading some components before they have the required information to be rendered like the map.
@@ -50,28 +48,15 @@ const App = () => {
     setShowModal(false);
   }
   
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-  
-    const validInput = /^[0-9]*\.?[0-9]*$/;
-
-    if (validInput.test(value)){
-      setHostileInfo(prevState => ({
-        ...prevState,
-        [name]: value
-      }));
-    }
-
-  };
 
   return (
     <div className='App'>
 
       <Logo />
 
-      {showInput && (<InputSection URL={URL} handleChange={handleChange} setIsPlane={setIsPlane}
-        setExpandedIndex={setExpandedIndex} hostileInfo={hostileInfo} setPlaneData={setPlaneData}
-        setHostileBackup={setHostileBackup} setPlaneBackup={setPlaneBackup}
+      {showInput && (<InputSection URL={URL} setIsPlane={setIsPlane} setExpandedIndex={setExpandedIndex} 
+      setHostileInfo={setHostileInfo} hostileInfo={hostileInfo} setPlaneData={setPlaneData} 
+      setHostileBackup={setHostileBackup} setPlaneBackup={setPlaneBackup}
       />)}
       
       {isPlane && (
