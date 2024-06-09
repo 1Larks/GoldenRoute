@@ -15,20 +15,20 @@ const saveOperation = async (URL, hostileInfo, friendlyInfo, saved, setSaved, se
         });
         if (response.ok) {
           // Operation successfully saved
-          alert('Operation saved successfully');
+          alert('המבצע נשמר בהצלחה');
           setSaved(true);
           setSavedBackup(true);
         } else {
           // Error saving operation
-          alert('Failed to save operation');
+          alert('שגיאה מצד השרת בשמירת המבצע');
         }
       } catch (error) {
         console.error('Error:', error);
-        alert('Error in saving the operation, Check the console for more info.')
+        alert('שגיאה בתהליך שמירת המבצע, בדוק את שורת הפקודות לעוד מידע.')
       }
     }
     else{
-      alert('This operation has already been saved.\nYou really love pushing the boundries don\'t you?')
+      alert('מבצע זה כבר שמור.')
     }
   };    
 

@@ -9,7 +9,7 @@ const ModalInputHolder = ({URL, changeAmount, setOperations, amount}) => {
             </div>
             <button onClick={ async() => {
                 await getOperations(URL, setOperations, amount);
-            }}>Load</button>
+            }}>טען</button>
         </div>
     );
 }
@@ -20,17 +20,17 @@ const OperationsContainer = ({operations, importOperation}) => {
             {operations.map((operation) => (
             <div key={operation.id} className="operation-box">
                 <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <h3>ID: {operation.id} <br/> Planes: {operation.planes.friendlyInfo.length}</h3>
+                    <h3>ID: {operation.id} <br/> {operation.planes.friendlyInfo.length} :מטוסים</h3>
                     <p> 
-                        Coordinates: {operation.hostile_plane.hostileInfo.Latitude}, {operation.hostile_plane.hostileInfo.Longitude}
-                    <br/> Speed: {operation.hostile_plane.hostileInfo.Speed} 
-                    <br/> Radius: {operation.hostile_plane.hostileInfo.Radius} <br/> 
-                    <br/> Timestamp: {operation.created_at}
+                        {operation.hostile_plane.hostileInfo.Latitude}, {operation.hostile_plane.hostileInfo.Longitude} :קורדניאטות 
+                    <br/> {operation.hostile_plane.hostileInfo.Speed} :מהירות
+                    <br/> {operation.hostile_plane.hostileInfo.Radius} :רדיוס <br/> 
+                    <br/> :חתימת זמן {operation.created_at}
                     </p>
                 </div>
                 <button onClick={() => {
                     importOperation(operation.id-1);
-                }}>Import Operation</button>
+                }}>ייבא מבצע</button>
             </div>
             ))}
         </div>

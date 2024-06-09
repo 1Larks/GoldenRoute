@@ -29,13 +29,12 @@ const PlaneCard = forwardRef(({index, plane, expandedIndex, setExpandedIndex}, r
         <div>
           <p className='danger'>Danger Distance: {format_field(plane.distance)} Km</p>
           <p className='danger'>Time To Escape: {format_field(plane.time)} Minutes</p>
-          <p>Latitude: {format_field(plane.latitude)}</p>
-          <p>Longitude: {format_field(plane.longitude)}</p>
-          <p>Speed: {format_field(plane.air_speed_in_knots)} Knots</p>
-          <p>Track: {format_field(plane.true_track)} Degrees</p>
-          <p>Squawk: {format_field(plane.squawk)}</p>
-          <p>Category: {format_field(plane.category)}</p>
-          <p>Closest: {plane.closest}</p>
+          <p>{format_field(plane.latitude)} :קו רוחב</p>
+          <p>{format_field(plane.longitude)} :קו רוחב</p>
+          <p>{format_field(plane.air_speed_in_knots)} :מהירות בקשרים</p>
+          <p>{format_field(plane.true_track)} :(מעלות) כיוון טיסה</p>
+          <p>{format_field(plane.squawk)} :קוד סקווק</p>
+          <p>{format_field(plane.category)} :קטגוריה</p>
         </div>
       )}
     </div>

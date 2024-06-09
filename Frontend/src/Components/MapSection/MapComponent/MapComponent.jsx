@@ -35,10 +35,10 @@ export default ({hostileInfo, friendlyInfo, expanded_index, setExpandedIndex, se
         />
         <Marker position={[hostileInfo.Latitude, hostileInfo.Longitude]} icon={redIcon}>
           <Popup>
-            Hostile Unmanned Aerial Vehicle. <br/>
-            coords: Latitude: {hostileInfo.Latitude} <br/>Longitude: {hostileInfo.Longitude} <br/>
-            Maximum Radius: {hostileInfo.Radius} <br/>
-            Velocity: {hostileInfo.Speed} 
+            כטב"ם <br/> :קורדינאטות <br/>
+            {hostileInfo.Latitude} :קו רוחב <br/> {hostileInfo.Longitude} :קו אורך<br/>
+            {hostileInfo.Radius} :רדיוס מקסימלי<br/>
+            {hostileInfo.Speed} :מהירות
           </Popup> 
         </Marker>
 
