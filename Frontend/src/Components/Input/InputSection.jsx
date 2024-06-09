@@ -35,10 +35,10 @@ const InputSection = ({URL, setIsPlane, setExpandedIndex,setHostileInfo, hostile
   return(
 
     <div className='InputSection'>
-      <InputBox InputName={"Latitude"} DisplayName={"קו רוחב"} onChange={handleChange} onKey={handleKeyPress}/>,
-      <InputBox InputName={"Longitude"} DisplayName={"קו אורך"} onChange={handleChange} onKey={handleKeyPress}/>,
-      <InputBox InputName={"Radius"} DisplayName={"רדיוס טיסה"} onChange={handleChange} onKey={handleKeyPress}/>,
-      <InputBox InputName={"Speed"} DisplayName={"מהירות"} onChange={handleChange} onKey={handleKeyPress}/>,
+      <InputBox InputName={"Latitude"} DisplayName={"קו רוחב"} onChange={handleChange} onKey={handleKeyPress}/>
+      <InputBox InputName={"Longitude"} DisplayName={"קו אורך"} onChange={handleChange} onKey={handleKeyPress}/>
+      <InputBox InputName={"Radius"} DisplayName={"רדיוס טיסה"} onChange={handleChange} onKey={handleKeyPress}/>
+      <InputBox InputName={"Speed"} DisplayName={"מהירות"} onChange={handleChange} onKey={handleKeyPress}/>
       <button onClick={() => {
         // The reason why we pass setIsPlane and setExpandedIndex is for the case that an error would accour so we dont want the app to crash.
         updateHostileInfo()
