@@ -1,7 +1,28 @@
 # חידת נתיב הזהב 🎉 🥇
 
-ביבליוגרפיה- <br/>
-https://www.movable-type.co.uk/scripts/latlong.html
-חישוב מרחק בין 2 קורדינאטות
-https://github.com/bbecquet/Leaflet.RotatedMarker
-https://github.com/pointhi/leaflet-color-markers?tab=readme-ov-file מרקרים צבעוניים למפה
+# רקע לפתרון החידה:
+אני חייב להודות שפעם כשהייתי שומע על פיתוח ווב הייתי מסתייג, זה לא נושא שעניין אותי ותמיד חשבתי שזה משעמם אבל די מהר אחרי שהתחלתי ממש התחברתי לתחום וזה הביא בי המון יצירתיות ומוטיבציה, הפרויקט של נתיב הזהב הוא החשיפה הראשונה שלי לעולם הווב וjavascript ולמען האמת למדתי את כל הטכנולוגיות שהשתמשתי בהן ממש בשביל הפרויקט ומאוד ניהנתי לעשות את זה ואני שמח שיצא לי להיחשף לטכנולוגיות המעניינות והפרקטיות האלה.
+
+# הוראות שימוש באפליקציה
+
+בעת פתיחת האתר בlocalhost:3000, יש לרשות המשתמש 4 תיבות קלט, 2 לקורדינאטות בפורמט של קו אורך וקו רוחב (latitude & longitude), תיבה אחת לרדיוס המרבי שהכטב"ם יכול לטוס בקילומטרים ועוד תיבה למהירות הכטב"ם. <br/>
+לאחר לחיצה על כפתור השליחה נשלחת בקשה לAPI שלנו והוא יחזיר לנו את כל המטוסים המצויים ברדיוס ששלחנו <br/>
+(הערה קטנה- עשיתי את האפליקציה בצורה של מעין רדאר כי חשבתי שזה יכול להיות מעניין, מאתגר, ובטוח יותר מכיוון שאולי מקבלי ההחלטות ירצו לפנות לגמרי את כל רדיוס הסכנה בהתאם לסיטואציה), <br/>
+לאחר שקיבלנו מהשרת את המידע על כל המטוסים ברדיוס הסכנה, תופיע בפנינו מפה (רצוי שתכיל מספר מטוסים לשם ההסבר- ניתן להשתמש בקורדינאטות של איזורים עמוסים בתעופה כמו ארצות הברית) <br/>
+המפה נראית עכוסה ומלחיצה אך אל דאגה- הכל פה מסודר והגיוני, אז הנה המקרא למפה- <br/>
+
+מרקר צהוב- המרקר הצהוב מסמל את המטוס הקרוב ביותר לסכנה. <br/> מרקר כחול- המרקר הכחול מסמל את המטוס הקרוב ביותר לסכנה כשאר אנחנו מרחיבים את המידע עליו. <br/> מרקר ירוק- המרקר הירוק מסמל מטוס הנמצא ברדיוס הסכנה אך אינו הכי קרוב לסכנה. <br/> מרקר סגול- המרקר הסגול מסמל מטוס הנמצא ברדיוס הסכנה אך אינו הכי קרוב לסכנה כאשר אנחנו מרחיבים את המידע עליו. <br/> מרקר אדום- המרקר האדום מסמל את הסכנה, כאשר אנחנו לוחצים עליו יקפוץ המידע הרלוונטי לגביו מעליו בניגוד לשאר המטוסים שהמידע עליהם נפתח בקופסה המכילה את המידע עליהם. </br> <br/> 
+לאחר שמוצגת בפנינו המפה נפתחו לנו מספר אופציות לפעולות במסד הנתונים, ניתן לשמור מבצע או לייבא מבצע, כאשר אנחנו לוחצים על ייבא מבצע יפתח בפנינו מודל המאפשר לנו לטעון מספר של מבצעים ממסד הנתונים של השרת ואף גם לייבא אותם, כאשר אנחנו מייבאים מבצע ניתן לחזור אחורה למצב הקודם בו היינו, דבר זה מאפשר לנו להשוות בין מבצעים בעת הצורך.
+<br/>
+# הרצת הקוד
+מכיוון שאני מאוד מאוד חדש לדוקר, אני לא מכיר את קונבנציות השימוש אז אפרט כאן איך להפעיל הכל, כדי להריץ את הקוד נכנסים לשורת הפקודות ומנווטים אל תיקיית הפרויקט, לאחר מכן מכניסים את הפקודה `docker-compose up --build` ומריצים, אחרי זה נכנסים ל`localhost:3000` ומצילים את המזרח התיכון!
+
+# ביבליוגרפיה - <br/>
+חישוב מרחק בין 2 קורדינאטות- https://www.movable-type.co.uk/scripts/latlong.html
+<br/>
+מרקרים מסתובבים- https://github.com/bbecquet/Leaflet.RotatedMarker
+<br/>
+מרקרים צבעוניים למפה- https://github.com/pointhi/leaflet-color-markers?tab=readme-ov-file
+<br/>
+
+וכמובן הרבה הרבה קרדיט ליוטיוב, stackoverflow, לדוקומנטציה של ריאקט אקספרס פוסטגרס פריזמה ודוקר, במהלך תכנות מסד הנתונים גם נעזרתי מעט בChatGPT וגם נעזרתי במעט אנשים באינטרנט כדי לפתור בעיות שהיו בפניי בעיקר בצד השרת עם express.
