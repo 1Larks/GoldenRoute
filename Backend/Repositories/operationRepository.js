@@ -23,7 +23,6 @@ const getOperations = async (amount) => {
   try {
     const operations = await prisma.operation.findMany({
       take: numOperations,
-      
     });
     return operations
   } catch (error) {
