@@ -10,7 +10,7 @@ import "leaflet-rotatedmarker";
 import { redIcon, greenIcon, purpleIcon, yellowIcon, blueIcon } from "./Icons";
 
 export default ({hostileInfo, friendlyInfo, expanded_index, setExpandedIndex, setScroll}) => {
-    
+    // When clicked on a plane we set the expanded index to it's index and scroll to it.
     function onClick(e, index){
         if (expanded_index == index){
             setExpandedIndex(-1);
@@ -33,6 +33,7 @@ export default ({hostileInfo, friendlyInfo, expanded_index, setExpandedIndex, se
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        {/* When clicking on the hostile plane we want to show the info about it. */}
         <Marker position={[hostileInfo.Latitude, hostileInfo.Longitude]} icon={redIcon}>
           <Popup>
             כטב"ם <br/> :קורדינאטות <br/>
@@ -41,7 +42,8 @@ export default ({hostileInfo, friendlyInfo, expanded_index, setExpandedIndex, se
             {hostileInfo.Speed} :מהירות
           </Popup> 
         </Marker>
-
+        {/* If the current plane is the closest plane to the danger we want to display him in a special color, also, for every type of plane (closest or not the closest) has different colors
+        for when it is either normal or expanded. */}
         {friendlyInfo.map((plane, index) => (
               (plane.closest == 'true')?
               (<Marker key={index} position={[plane.latitude, plane.longitude]} icon={(index == expanded_index) ? blueIcon : yellowIcon} eventHandlers={

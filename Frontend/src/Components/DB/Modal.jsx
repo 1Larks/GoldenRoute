@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ModalInputHolder, OperationsContainer } from './ModalComponents';
 
 const Modal = ({ isOpen, onClose, URL, setShowInput, setHostileInfo, setPlaneData, setIsPlane, setSaved}) => {
+    // Default amount of operations to load
     const [amount, setAmount] = useState(10);
     const [operations, setOperations] = useState([]);
     if (!isOpen) return null;
@@ -12,7 +13,6 @@ const Modal = ({ isOpen, onClose, URL, setShowInput, setHostileInfo, setPlaneDat
     }
     
     const importOperation = (id) => {
-        console.log(id);
         setIsPlane(false);
 
         setHostileInfo(operations[id].hostile_plane.hostileInfo);
