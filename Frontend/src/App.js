@@ -10,7 +10,7 @@ import Modal from './Components/DB/Modal.jsx';
 
 import InputSection from './Components/Input/InputSection.jsx';
 
-URL = "http://localhost:7878"
+URL = "http://localhost:1337"
 
 const App = () => {
   
@@ -54,23 +54,27 @@ const App = () => {
 
       <Logo />
 
+      {/* If the showInput variable is set to true, display the input section. */}
       {showInput && (<InputSection URL={URL} setIsPlane={setIsPlane} setExpandedIndex={setExpandedIndex} 
       setHostileInfo={setHostileInfo} hostileInfo={hostileInfo} setPlaneData={setPlaneData} 
       setHostileBackup={setHostileBackup} setPlaneBackup={setPlaneBackup}
       />)}
       
+      {/* If the user sent the data to the API, after the API responds isPlane is set to true and we can display the map without errors, check ./Components/Input/getPlanesFromAPI lines 7-13. */}
       {isPlane && (
         <MapSection planeData={planeData} hostileInfo={hostileInfo} expandedIndex={expandedIndex} setExpandedIndex={setExpandedIndex} scroll={scroll} setScroll={setScroll} />
       )}
 
+      {/* Same concept as the MapSection, but with a different div just for the DB actions. */}
       <div className='DB_Section'>
         {isPlane && (<DB_Actions URL={URL} hostileInfo={hostileInfo} friendlyInfo={planeData} 
         openModal={openModal} saved = {saved} setSaved={setSaved} setSavedBackup={setSavedBackup}/>)}
-        
+        {/* The modal will activate if the showModal is true */}
         <Modal isOpen={showModal} onClose={closeModal} URL={URL} setShowInput={setShowInput} 
         setHostileInfo={setHostileInfo} setPlaneData={setPlaneData} setIsPlane={setIsPlane}
         setSaved = {setSaved}/>
         {/* Couldnt fix the awful margin sorry :( */}
+        {/* If showInput is false, it means that an operation has been imported, I made it this way to prevent confusion so we havet his return button that revert things to the previous state. */}
         {!showInput && (<button onClick={() => {
           setIsPlane(false);
           setExpandedIndex(-1);
