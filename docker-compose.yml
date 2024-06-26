@@ -16,6 +16,7 @@ services:
     build: ./backend
     environment:
       DATABASE_URL: postgres://postgres:1451@postgres:5432/goldenRoute
+    
     ports:
       - "1337:1337"
     depends_on:

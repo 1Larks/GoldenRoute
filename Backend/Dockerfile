@@ -8,10 +8,12 @@ RUN npm install
 
 COPY . .
 
-RUN npx prisma generate
+COPY wait_for_db.sh /usr/src/app/wait_for_db.sh
 
-RUN npx prisma migrate dev --name create-operation-table
+RUN chmod +x /usr/src/app/wait_for_db.sh
+
+RUN npx prisma generate
 
 EXPOSE 1337
 
-CMD ["npm", "start"]
+CMD ["sh", "-c", "npx prisma migrate dev --name create-operation-table && npm start"]
